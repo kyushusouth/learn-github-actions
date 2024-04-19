@@ -9,7 +9,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./scripts
+        # working-directory: .
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,10 +18,10 @@ jobs:
       - run: echo "GitHub actor is ${{ github.actor }}"
       - run: npm install -g bats
       - run: bats -v
-      - run: ./test.sh
-      - run: |
-          expr 1 + 1 > ./output.log
-      - run: cat ./output.log
-      - uses: actions/upload-artifact@v4
-        with:
-          path: ./output.log
+      - run: ./scripts/test.sh
+      # - run: |
+      #     expr 1 + 1 > ./output.log
+      # - run: cat ./output.log
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     path: ./output.log
