@@ -19,3 +19,6 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
       - run: ./test.sh
+      - run: |
+          expr 1 + 1 > ./output.log
+      - run: cat ./output.log
