@@ -2,10 +2,14 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./scripts
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -14,3 +18,4 @@ jobs:
       - run: echo "GitHub actor is ${{ github.actor }}"
       - run: npm install -g bats
       - run: bats -v
+      - run: ./test.sh
