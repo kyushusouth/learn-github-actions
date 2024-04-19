@@ -24,4 +24,4 @@ jobs:
       - run: cat ./output.log
       - uses: actions/upload-artifact@v4
         with:
-          path: output.log
+          path: ./output.log
