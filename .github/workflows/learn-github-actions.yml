@@ -10,6 +10,14 @@ jobs:
       run:
         shell: bash
         working-directory: .
+    env:
+      myNull: ${{ null }}
+      myBoolean: ${{ false }}
+      myIntegerNumber: ${{ 711 }}
+      myFloatNumber: ${{ -9.2 }}
+      myHexNumber: ${{ 0xff }}
+      myExponentialNumber: ${{ -2.99e-2 }}
+      myString: Mona the Octocat
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,10 +30,18 @@ jobs:
       - run: |
           expr 1 + 1 > ./output.log
       - run: cat ./output.log
-      - uses: actions/upload-artifact@v4
-        with:
-          name: test-upload
-          path: ./output.log
-      - uses: actions/download-artifact@v4
-        with:
-          name: test-upload
+      - run: |
+          echo $myNull
+          echo $myBoolean
+          echo $myIntegerNumber
+          echo $myFloatNumber
+          echo $myHexNumber
+          echo $myExponentialNumber
+          echo $myString
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: test-upload
+      #     path: ./output.log
+      # - uses: actions/download-artifact@v4
+      #   with:
+      #     name: test-upload
