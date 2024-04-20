@@ -40,6 +40,9 @@ jobs:
           echo $myString
           echo ${{ contains('Hello world', 'llo') }}
           echo ${{ contains('Hello world', 'lsdjfoseflsef') }}
+          echo ${{ github.event_name }}
+          echo ${{ contains(fromJSON('["push", "pull_request"]'), github.event_name) }}
+          echo ${{ startsWith('Hello world', 'He') }}
       # - uses: actions/upload-artifact@v4
       #   with:
       #     name: test-upload
