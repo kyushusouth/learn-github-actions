@@ -38,6 +38,8 @@ jobs:
           echo $myHexNumber
           echo $myExponentialNumber
           echo $myString
+          echo ${{ contains('Hello world', 'llo') }}
+          echo ${{ contains('Hello world', 'lsdjfoseflsef') }}
       # - uses: actions/upload-artifact@v4
       #   with:
       #     name: test-upload
