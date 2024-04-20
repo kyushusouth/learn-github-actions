@@ -29,4 +29,3 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: test-upload
-          path: ./output.log
